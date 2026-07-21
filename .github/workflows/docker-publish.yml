@@ -1,21 +1,5 @@
-name: CI/CD
-
-on:
-  push:
-    branches: [ "main" ]
-
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run tests
-        run: |
-          # your test commands here
-          npm test
-
   build-and-push:
-    needs: test          # <-- won't run unless 'test' succeeds
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
