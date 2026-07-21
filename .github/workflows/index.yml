@@ -4,11 +4,7 @@ name: Pull and Verify Docker Image
 on:
   workflow_dispatch:
   push:
-    branches: [ "main" ]
-    - name: Check secrets are loaded
-        run: |
-          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then echo "USERNAME is empty"; else echo "USERNAME is set"; fi
-          if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then echo "TOKEN is empty"; else echo "TOKEN is set"; fi
+    branches: ["main"]
 
 env:
   # Change these to match your Docker Hub repo
@@ -20,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check secrets are loaded
+        run: |
+          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then echo "USERNAME is empty"; else echo "USERNAME is set"; fi
+          if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then echo "TOKEN is empty"; else echo "TOKEN is set"; fi
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
