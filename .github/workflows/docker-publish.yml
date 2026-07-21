@@ -7,7 +7,7 @@ on:
 env:
   AWS_REGION: us-east-1
   S3_BUCKET: my-s3-raghu-static-website
-  DOCKERHUB_IMAGE: yourdockerhubusername/my-static-site   # change this
+  DOCKERHUB_IMAGE: axiorauser37/my-static-site      #change this
 
 jobs:
   deploy:
