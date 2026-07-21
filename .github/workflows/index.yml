@@ -1,16 +1,13 @@
 name: Pull and Verify Docker Image
-
 # Trigger manually from the Actions tab, or on every push to main
 on:
   workflow_dispatch:
   push:
     branches: ["main"]
-
 env:
   # Change these to match your Docker Hub repo
   DOCKERHUB_IMAGE: your-dockerhub-username/your-image-name
   IMAGE_TAG: latest
-
 jobs:
   pull-and-verify:
     runs-on: ubuntu-latest
