@@ -5,6 +5,10 @@ on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
+    - name: Check secrets are loaded
+        run: |
+          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then echo "USERNAME is empty"; else echo "USERNAME is set"; fi
+          if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then echo "TOKEN is empty"; else echo "TOKEN is set"; fi
 
 env:
   # Change these to match your Docker Hub repo
